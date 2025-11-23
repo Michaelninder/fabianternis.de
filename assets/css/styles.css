@@ -1,12 +1,26 @@
 :root {
-    --text-color: slategray;
+    --text-color: gray;
     --background-color: whitesmoke;
-    --base-font: ;
+    --base-font: "Courier New", Courier, monospace;
+    --main-margin: clamp(1rem, 5vw, 3rem);
+    --base-size: clamp(1rem, 2vw, 1.5rem);
 }
 
 html, body {
     min-height: 100vh;
     color: var(--text-color);
+    background-color: lightgoldenrodyellow;
+    font-family: var(--base-font);
+}
+
+main {
     background-color: var(--background-color);
-    font-family:'Courier New', Courier, monospace;
+    margin: var(--main-margin);
+    padding: calc(var(--base-size) / 2);
+    border-radius: 48px 12px 48px 12px;
+    border: 1px dotted lightgray;
+}
+
+h1 {
+    font-size: calc(var(--base-size) * 2);
 }
