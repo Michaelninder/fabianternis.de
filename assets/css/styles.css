@@ -7,12 +7,19 @@
     --link-color: black;
 }
 
+::selection {
+    color: var(--background-color);
+    background-color: var(--text-color);
+}
+
 html,
 body {
     min-height: calc(100vh - var(--main-margin) * 2);
     color: var(--text-color);
     background-color: lightgoldenrodyellow;
     font-family: var(--base-font);
+    /*cursor: url('/assets/vector/arrow-cursor-fill.svg'), auto;*/
+    cursor: url('/assets/vector/arrow-cursor-outline.svg'), auto;
 }
 
 main {
@@ -20,7 +27,9 @@ main {
     margin: var(--main-margin);
     padding: calc(var(--base-size) / 2);
     border-radius: 48px 12px 48px 12px;
-    border: 1px dotted slategray;
+    /*border: 1px dotted slategray;*/
+    border: 1px solid lightgray;
+    cursor: url('/assets/vector/arrow-cursor-outline.svg'), auto;
 }
 
 h1 {
@@ -73,4 +82,6 @@ a {
 a:hover {
     background-color: var(--link-color);
     color: var(--background-color);
+    /*cursor: url('/assets/vector/arrow-cursor-outline.svg'), pointer;*/
+    cursor: url('/assets/vector/hand-pointer.svg'), pointer;
 }
