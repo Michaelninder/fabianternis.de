@@ -1,0 +1,12 @@
+:root {
+    --text-color: slategray;
+    --background-color: whitesmoke;
+    --base-font: ;
+}
+
+html, body {
+    min-height: 100vh;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    font-family:'Courier New', Courier, monospace;
+}
