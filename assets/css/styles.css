@@ -1,10 +1,20 @@
 :root {
-    --text-color: gray;
-    --background-color: whitesmoke;
+    color-scheme: light dark;
+
+    --text-color: light-dark(gray, lightgray);
+    --background-color: light-dark(whitesmoke, #333);
     --base-font: "Courier New", Courier, monospace;
     --main-margin: clamp(1rem, 5vw, 3rem);
     --base-size: clamp(1rem, 2vw, 1.5rem);
-    --link-color: black;
+    --link-color: light-dark(black, #90CAF9);
+
+    --main-bg-color: light-dark(lightgoldenrodyellow, #222);
+    --main-border-color: light-dark(lightgray, slategray);
+    --main-group-bg-color: light-dark(lightgray, #444);
+    --main-group-border-color: light-dark(slategray, darkgray);
+    --link-btn-background: light-dark(white, #555);
+    --link-btn-hover-background: var(--link-color);
+    --link-btn-hover-color: var(--background-color);
 }
 
 ::selection {
@@ -16,9 +26,8 @@ html,
 body {
     min-height: calc(100vh - var(--main-margin) * 2);
     color: var(--text-color);
-    background-color: lightgoldenrodyellow;
+    background-color: var(--main-bg-color);
     font-family: var(--base-font);
-    /*cursor: url('/assets/vector/arrow-cursor-fill.svg'), auto;*/
     cursor: url('/assets/vector/arrow-cursor-outline.svg'), auto;
 }
 
@@ -27,8 +36,7 @@ main {
     margin: var(--main-margin);
     padding: calc(var(--base-size) / 2);
     border-radius: 48px 12px 48px 12px;
-    /*border: 1px dotted slategray;*/
-    border: 1px solid lightgray;
+    border: 1px solid var(--main-border-color);
     cursor: url('/assets/vector/arrow-cursor-outline.svg'), auto;
 }
 
@@ -53,13 +61,13 @@ h1 {
 }
 
 .group-container h2 {
-    color: black;
+    color: var(--link-color);
 }
 
 .main-group {
     border-radius: 32px 8px 32px 8px;
-    border: 1px solid slategray;
-    background-color: lightgray;
+    border: 1px solid var(--main-group-border-color);
+    background-color: var(--main-group-bg-color);
     max-width: 350px;
     padding: 20px;
     flex: 1 1 300px;
@@ -70,6 +78,7 @@ a {
     padding: calc(var(--base-size) / 3) calc(var(--base-size) / 2);
     margin: calc(var(--base-size) / 4) auto;
     color: var(--link-color);
+    background-color: var(--link-btn-background);
     text-decoration: none;
     border: 1px solid var(--link-color);
     border-radius: 8px;
@@ -80,8 +89,7 @@ a {
 }
 
 a:hover {
-    background-color: var(--link-color);
-    color: var(--background-color);
-    /*cursor: url('/assets/vector/arrow-cursor-outline.svg'), pointer;*/
+    background-color: var(--link-btn-hover-background);
+    color: var(--link-btn-hover-color);
     cursor: url('/assets/vector/hand-pointer.svg'), pointer;
 }
