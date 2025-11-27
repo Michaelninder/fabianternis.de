@@ -74,22 +74,13 @@ h1 {
     margin-bottom: var(--base-size);
 }
 
-a.logo {
+h1.logo {
     font-size: calc(var(--base-size) * 1.2);
     line-height: 1;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
         'Lucida Sans', Arial, sans-serif;
     font-weight: 50;
     margin: 0;
-    text-decoration: none;
-    color: var(--text-color);
-}
-
-a.logo:hover {
-    text-decoration: none;
-    color: var(--text-color);
-    background: none;
-    transform: none;
 }
 
 h2 {
@@ -113,6 +104,62 @@ h2 {
     padding: 24px;
     border-radius: 16px;
     border: 1px solid var(--main-border-color);
+}
+
+.social-links-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.social-icon-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--background-color);
+    border: 1px solid var(--main-border-color);
+    color: var(--text-color);
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.1s ease, color 0.2s ease;
+}
+
+.social-icon-link img {
+    width: 24px;
+    height: 24px;
+    filter: invert(var(--filter-svg-invert, 0%));
+}
+
+@media (prefers-color-scheme: dark) {
+    .social-icon-link img {
+        --filter-svg-invert: 100%;
+    }
+}
+
+.social-icon-link .tooltip {
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--text-color);
+    color: var(--background-color);
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    pointer-events: none;
+}
+
+.social-icon-link:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
 }
 
 .link-group {
