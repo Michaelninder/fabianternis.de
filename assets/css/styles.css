@@ -6,15 +6,9 @@
     --base-font: "Roboto Mono", monospace;
     --main-margin: clamp(.1rem, 4vw, 3rem);
     --base-size: clamp(1rem, 2vw, 1.5rem);
-    --link-color: light-dark(black, #90CAF9);
 
     --main-bg-color: light-dark(lightgoldenrodyellow, #222);
     --main-border-color: light-dark(lightgray, slategray);
-    --main-group-bg-color: light-dark(lightgray, #444);
-    --main-group-border-color: light-dark(slategray, darkgray);
-    --link-btn-background: light-dark(white, #555);
-    --link-btn-hover-background: var(--link-color);
-    --link-btn-hover-color: var(--background-color);
 }
 
 ::selection {
@@ -40,7 +34,6 @@ main {
     margin-inline: var(--main-margin);
     padding: calc(var(--base-size) / 2);
     border-radius: 24px;
-    border: 0px solid var(--main-border-color);
     cursor: url('/assets/vector/arrowhead-rounded-outline.svg'), auto;
     flex-grow: 1;
     overflow-y: auto;
@@ -54,12 +47,18 @@ nav {
     flex-direction: row;
 }
 
+nav ul {
+    display: flex;
+    gap: clamp(7px, 2vw, 27px);
+    flex-direction: row;
+}
+
 h1 {
     font-size: calc(var(--base-size) * 1.8);
     margin-bottom: var(--base-size);
 }
 
-h1.title {
+h1.logo {
     font-size: calc(var(--base-size) * 1.2);
     line-height: 0;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;

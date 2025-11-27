@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="de">
     <head>
         <meta charset="UTF-8" />
@@ -8,41 +9,43 @@
     <body>
         <main>
             <nav>
-                <h1 class="title">fabianternis</h1>
+                <h1 class="logo">fabianternis</h1>
                 <ul class="nav-links">
-                    <a href="" class="nav-link">"Link"</a>
+                    <li class="nav-link"><a href="#">Link</a></li>
+                    <li class="nav-link"><a href="#">About</a></li>
                 </ul>
             </nav>
-            <div>
-                <h1>Meine Links</h1>
-                <div class="group-container">
-                    <div class="main-group">
+            <div class="content-wrapper">
+                <section class="link-group">
+                    <h1>Meine Links</h1>
+                    <div class="category">
                         <h2>Socialmedia</h2>
-                        <div class="link-group">
-                            <a href="https://github.com/michaelninder" target="_blank">GitHub</a>
-                            <a href="https://codepen.io/Michaelninder" target="_blank">CodePen</a>
-                        </div>
-                        <div class="link-group">
-                            <a href="https://youtube.com/@michaelninder" target="_blank">YouTube</a>
-                            <a href="https://tiktok.com/michaelninder" target="_blank">TikTok</a>
-                            <a href="https://twitch.tv/michaelninder" target="_blank">Twitch</a>
-                        </div>
-                        <div class="link-group">
-                            <a href="https://x.com/micha_was_taken" target="_blank">X / Twitter</a>
-                            <a href="https://instagram.com/fabianternis" target="_blank">Instagram</a>
-                        </div>
-                        <div class="link-group">
-                            <a href="https://modrinth.com/user/michaelninder" target="_blank">Modrinth</a>
+                        <div class="link-grid">
+                            <a href="https://github.com/michaelninder" target="_blank" class="link-button">GitHub</a>
+                            <a href="https://codepen.io/Michaelninder" target="_blank" class="link-button">CodePen</a>
+                            <a href="https://youtube.com/@michaelninder" target="_blank" class="link-button">YouTube</a>
+                            <a href="https://tiktok.com/michaelninder" target="_blank" class="link-button">TikTok</a>
+                            <a href="https://twitch.tv/michaelninder" target="_blank" class="link-button">Twitch</a>
+                            <a href="https://x.com/micha_was_taken" target="_blank" class="link-button">X / Twitter</a>
+                            <a href="https://instagram.com/fabianternis" target="_blank" class="link-button">Instagram</a>
+                            <a href="https://modrinth.com/user/michaelninder" target="_blank" class="link-button">Modrinth</a>
                         </div>
                     </div>
-                    <div class="main-group">
+                    <div class="category">
                         <h2>Webseiten und Projekte</h2>
-                        <a href="https://fabianternis.dev" target="_blank">fabianternis.dev (EN)</a>
-                        <a href="https://fternis.de" target="_blank">fternis.de (DE)</a>
-                        <a href="https://dsc.pics" target="_blank">dsc.pics (EN/DE/FR)</a>
+                        <div class="link-grid">
+                            <a href="https://fabianternis.dev" target="_blank" class="link-button">fabianternis.dev (EN)</a>
+                            <a href="https://fternis.de" target="_blank" class="link-button">fternis.de (DE)</a>
+                            <a href="https://dsc.pics" target="_blank" class="link-button">dsc.pics (EN/DE/FR)</a>
+                        </div>
                     </div>
-                </div>
+                </section>
             </div>
         </main>
+        <footer>
+            <div class="footer-content">
+                <p>&copy; 2025 Fabian Ternis</p>
+            </div>
+        </footer>
     </body>
 </html>
