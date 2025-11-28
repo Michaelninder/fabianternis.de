@@ -106,11 +106,20 @@ h2 {
     border: 1px solid var(--main-border-color);
 }
 
+.socials-contsiner {
+    align-items: center;
+}
+
 .social-links-container {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     gap: 16px;
     margin-top: 16px;
+}
+
+.social-links-container a:hover {
+    transform: none;
 }
 
 .social-icon-link {
@@ -132,6 +141,15 @@ h2 {
     width: 24px;
     height: 24px;
     filter: invert(var(--filter-svg-invert, 0%));
+    transition-duration: .3s;
+}
+/*
+.social-icon-link img:hover {
+    scale: 1.25;
+}
+*/
+.social-icon-link:hover img {
+    scale: 1.25;
 }
 
 @media (prefers-color-scheme: dark) {
