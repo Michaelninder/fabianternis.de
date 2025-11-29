@@ -76,7 +76,7 @@ h1 {
     margin-bottom: var(--base-size);
 }
 
-h1.logo {
+a.logo {
     font-size: calc(var(--base-size) * 1.2);
     line-height: 1;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
@@ -90,8 +90,8 @@ h1.logo {
 a.logo:hover {
     text-decoration: none;
     color: var(--text-color);
-    background-color: none;
-    translate: 0;
+    background-color: var(--background-color);
+    transform: none;
 }
 
 h2 {
@@ -252,6 +252,16 @@ span.marker-highlight:after {
     filter: brightness(0) saturate(100%) invert(75%) sepia(90%) hue-rotate(369deg) saturate(300%) contrast(100%);
 
     /*color: var(--marker-color);*/
+
+    transition-duration: .25s;
+}
+
+span.marker-highlight:hover:after {
+    opacity: 0.2;
+    /*filter: brightness(0) saturate(100%) invert(50%) sepia(50%) hue-rotate(200deg) saturate(200%) contrast(100%);*/
+    cursor: pointer;
+
+    transition-duration: .2s;
 }
 
 footer {
