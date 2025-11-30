@@ -1,0 +1,95 @@
+:root {
+    color-scheme: light dark;
+
+    --text-color: light-dark(gray, lightgray);
+    --background-color: light-dark(whitesmoke, #333);
+    --base-font: "Courier New", Courier, monospace;
+    --main-margin: clamp(1rem, 5vw, 3rem);
+    --base-size: clamp(1rem, 2vw, 1.5rem);
+    --link-color: light-dark(black, #90CAF9);
+
+    --main-bg-color: light-dark(lightgoldenrodyellow, #222);
+    --main-border-color: light-dark(lightgray, slategray);
+    --main-group-bg-color: light-dark(lightgray, #444);
+    --main-group-border-color: light-dark(slategray, darkgray);
+    --link-btn-background: light-dark(white, #555);
+    --link-btn-hover-background: var(--link-color);
+    --link-btn-hover-color: var(--background-color);
+}
+
+::selection {
+    color: var(--background-color);
+    background-color: var(--text-color);
+}
+
+html,
+body {
+    min-height: calc(100vh - var(--main-margin) * 2);
+    color: var(--text-color);
+    background-color: var(--main-bg-color);
+    font-family: var(--base-font);
+    cursor: url('/assets/vector/arrow-cursor-outline.svg'), auto;
+}
+
+main {
+    background-color: var(--background-color);
+    margin: var(--main-margin);
+    padding: calc(var(--base-size) / 2);
+    border-radius: 48px 12px 48px 12px;
+    border: 1px solid var(--main-border-color);
+    cursor: url('/assets/vector/arrow-cursor-outline.svg'), auto;
+}
+
+h1 {
+    font-size: calc(var(--base-size) * 1.8);
+    margin-bottom: var(--base-size);
+}
+
+.link-group {
+    margin-bottom: calc(var(--base-size) / 2);
+}
+
+.link-group:last-child {
+    margin-bottom: 0;
+}
+
+.group-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+}
+
+.group-container h2 {
+    color: var(--link-color);
+}
+
+.main-group {
+    border-radius: 32px 8px 32px 8px;
+    border: 1px solid var(--main-group-border-color);
+    background-color: var(--main-group-bg-color);
+    max-width: 350px;
+    padding: 20px;
+    flex: 1 1 300px;
+}
+
+a {
+    display: block;
+    padding: calc(var(--base-size) / 3) calc(var(--base-size) / 2);
+    margin: calc(var(--base-size) / 4) auto;
+    color: var(--link-color);
+    background-color: var(--link-btn-background);
+    text-decoration: none;
+    border: 1px solid var(--link-color);
+    border-radius: 8px;
+    max-width: 300px;
+    transition:
+        background-color 0.4s ease,
+        color 0.3s ease;
+}
+
+a:hover {
+    background-color: var(--link-btn-hover-background);
+    color: var(--link-btn-hover-color);
+    cursor: url('/assets/vector/hand-pointer.svg'), pointer;
+}
