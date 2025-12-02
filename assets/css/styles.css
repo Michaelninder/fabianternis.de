@@ -1,19 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:wght@600;700&family=Space+Grotesk:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap');
+
 :root {
     color-scheme: light dark;
-
-    --text-color: light-dark(gray, lightgray);
+    --text-color: light-dark(#2c3e50, #e0e0e0);
     --background-color: light-dark(whitesmoke, #333);
     --base-font: "Roboto Mono", monospace;
+    --other-font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --heading-font: "Space Grotesk", "Inter", sans-serif;
+    --mono-font: "JetBrains Mono", "Roboto Mono", monospace;
+    --accent-font: "Playfair Display", serif;
     --main-margin: clamp(.1rem, 4vw, 3rem);
     --base-size: clamp(1rem, 2vw, 1.5rem);
-
-    --main-bg-color: light-dark(lightgoldenrodyellow, #222);
-    --main-border-color: light-dark(lightgray, slategray);
-
-    --link-hover-color: light-dark(#222, lightgoldenrodyellow);
-    --link-hover-bg: light-dark(lightgray, slategray);
-
+    --main-bg-color: light-dark(#fef9f3, #1a1a1a);
+    --main-border-color: light-dark(#d4d4d4, #404040);
+    --link-hover-color: light-dark(#1a1a1a, #fef9f3);
+    --link-hover-bg: light-dark(#e5e5e5, #525252);
+    --accent-color: light-dark(#3b82f6, #60a5fa);
     --marker-color: light-dark(yellow);
+    --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
 ::selection {
@@ -444,4 +449,8 @@ footer .footer-content ul li a {
     .project-info {
         /*align-items: center;*/
     }
+}
+nav {
+    position: sticky;
+    top: 16px;
 }
