@@ -44,6 +44,7 @@ body.scrolled nav {
     border-radius: 12px;
     padding-inline: 16px;
     margin-inline: var(--main-margin);
+    z-index: 234;
 }
 
 main {
@@ -475,4 +476,11 @@ footer .footer-content ul li a {
     .project-info {
         /*align-items: center;*/
     }
+}
+
+nav {
+    /*border-top: .1px solid slategray;*/
+    border: .125px solid slategray;
+    border-inline-width: .025px;
+    border-bottom: none;
 }
