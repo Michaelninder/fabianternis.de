@@ -19,6 +19,8 @@
     --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.08);
     --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.12);
     --nav-distance-to-top: 4rem;
+    --skeleton-base: light-dark(#e0e0e0, #2a2a2a);
+    --skeleton-highlight: light-dark(#f5f5f5, #3a3a3a);
 }
 
 ::selection {
@@ -191,8 +193,8 @@ h2 {
 }
 */
 .social-icon-link:hover img {
-    scale: 1.25;
-    rotate: -5deg;
+    scale: 1.45;
+    rotate: -7.5deg;
 }
 /*
 .social-icon-link:hover {
@@ -481,6 +483,107 @@ footer .footer-content ul li a {
 nav {
     /*border-top: .1px solid slategray;*/
     border: .125px solid slategray;
-    border-inline-width: .025px;
+    /*border-inline-width: .025px;*/
+    /*border-inline: 50px solid transparent;*/
+    border-inline: none;
     border-bottom: none;
+}
+
+.loader {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
+}
+
+.loader-spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid var(--main-border-color);
+    border-bottom-color: var(--text-color);
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+.skeleton {
+    background: linear-gradient(90deg,
+        var(--skeleton-base) 25%,
+        var(--skeleton-highlight) 50%,
+        var(--skeleton-base) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite linear;
+    border-radius: 6px;
+}
+
+.loading-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    margin-top: 60px;
+}
+
+.loading-card {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    opacity: 0.7;
+}
+
+.loading-card:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.loading-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sk-text {
+    height: 1em;
+    width: 100%;
+}
+
+.sk-title {
+    height: 2em;
+    width: 50%;
+    margin-bottom: 8px;
+    border-radius: 8px;
+}
+
+.sk-btn {
+    height: 42px;
+    width: 150px;
+    border-radius: 12px;
+    margin-top: 8px;
+}
+
+.sk-image {
+    flex: 1;
+    height: 300px;
+    width: 100%;
+    border-radius: 8px;
+    max-width: 45%;
+}
+
+@media (max-width: 768px) {
+    .loading-card {
+        flex-direction: column !important;
+    }
+    .sk-image {
+        max-width: 100%;
+    }
 }
