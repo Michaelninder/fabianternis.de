@@ -4,10 +4,11 @@
     color-scheme: light dark;
     --text-color: light-dark(#2c3e50, #e0e0e0);
     --background-color: light-dark(whitesmoke, #333);
-    --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    --font-heading: "Space Grotesk", "Inter", sans-serif;
-    --font-display: "Playfair Display", serif;
-    --font-mono: "JetBrains Mono", monospace;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+        sans-serif;
+    --font-heading: 'Space Grotesk', 'Inter', sans-serif;
+    --font-display: 'Playfair Display', serif;
+    --font-mono: 'JetBrains Mono', monospace;
     --main-margin: clamp(0.1rem, 4vw, 3rem);
     --base-size: clamp(1rem, 2vw, 1.5rem);
     --main-bg-color: light-dark(#fef9f3, #1a1a1a);
@@ -54,7 +55,7 @@ main {
     margin-top: 20px;
     margin-inline: var(--main-margin);
     padding: 32px;
-    padding-top: calc(32px +  var(--nav-distance-to-top));
+    padding-top: calc(32px + var(--nav-distance-to-top));
     border-radius: 24px;
     cursor: url('/assets/svg/arrowhead-rounded-outline.svg'), auto;
     flex-grow: 1;
@@ -74,8 +75,9 @@ nav {
     margin-bottom: calc(-1.45 * var(--nav-distance-to-top));
     top: 16px;
     z-index: 1000;
-    transition: background-color 0.3s ease, backdrop-filter 0.3s ease, border-radius 0.3s ease, padding 0.3s ease, margin 0.3s ease;
-    padding-inline: .25rem;
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease,
+        border-radius 0.3s ease, padding 0.3s ease, margin 0.3s ease;
+    padding-inline: 0.25rem;
     padding-block: 1rem;
 }
 
@@ -343,7 +345,6 @@ footer .footer-content ul li a {
 
 .project-item {
     display: flex;
-    /*display: block;*/
     align-items: center;
     gap: 40px;
     padding: 0;
@@ -388,37 +389,32 @@ footer .footer-content ul li a {
     transform: translateX(0);
 }
 
-/*
+.project-item .project-image {
+    flex: 1;
+    /*max-width: 45%;*/
+    height: auto;
+    width: auto;
+    max-height: 100vh;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 1px solid var(--main-border-color);
+    box-shadow: var(--shadow-medium);
+}
+
 .project-info {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    font-family: 'Open Sans', sans-serif;
-}
-*/
-.project-item .project-image {
-    flex: 1;
-    max-width: 45%;
-    height: auto;
-    width: auto;
-    max-height: 175vh;
-    border-radius: 8px;
-    object-fit: cover;
-    border: 1px solid var(--main-border-color);
-}
-
-.project-info {
+    gap: 12px;
     position: sticky;
     position: -webkit-sticky;
     top: 0;
-    /*border: 2px solid red; */
 }
 
 .project-title {
     font-family: var(--font-heading);
     font-size: calc(var(--base-size) * 1.2);
-    margin-bottom: 8px;
+    margin-bottom: 0;
     margin-top: 0;
 }
 
@@ -426,8 +422,15 @@ footer .footer-content ul li a {
     font-family: var(--font-body);
     font-size: calc(var(--base-size) * 0.9);
     line-height: 1.6;
-    margin-bottom: 12px;
+    margin-bottom: 0;
     color: var(--text-color);
+}
+
+.project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
 }
 
 .project-link {
@@ -441,15 +444,17 @@ footer .footer-content ul li a {
     text-decoration: none;
     color: var(--text-color);
     transition: background-color 0.2s ease, color 0.2s ease,
-        transform 0.1s ease;
+        transform 0.1s ease, box-shadow 0.2s ease;
     font-size: calc(var(--base-size) * 0.9);
     font-family: var(--font-body);
+    box-shadow: var(--shadow-light);
 }
 
 .project-link:hover {
     background-color: var(--link-hover-bg);
     color: var(--link-hover-color);
     transform: translateY(-2px) translateX(2px);
+    box-shadow: var(--shadow-medium);
 }
 
 .project-link .open-link-svg {
@@ -476,13 +481,17 @@ footer .footer-content ul li a {
     }
 
     .project-info {
-        /*align-items: center;*/
+        align-items: center;
+    }
+
+    .project-links {
+        justify-content: center;
     }
 }
 
 nav {
     /*border-top: .1px solid slategray;*/
-    border: .125px solid slategray;
+    border: 0.125px solid slategray;
     /*border-inline-width: .025px;*/
     /*border-inline: 50px solid transparent;*/
     border-inline: none;
@@ -507,17 +516,26 @@ nav {
 }
 
 @keyframes rotation {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 @keyframes shimmer {
-    0% { background-position: -200% 0; }
-    100% { background-position: 200% 0; }
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
 }
 
 .skeleton {
-    background: linear-gradient(90deg,
+    background: linear-gradient(
+        90deg,
         var(--skeleton-base) 25%,
         var(--skeleton-highlight) 50%,
         var(--skeleton-base) 75%
