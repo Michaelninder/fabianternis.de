@@ -396,7 +396,7 @@ footer .footer-content ul li a {
     width: auto;*/
     max-height: 80vh;
     border-radius: 8px;
-    object-fit: fill;
+    object-fit: contain;
     border: 1px solid var(--main-border-color);
     box-shadow: var(--shadow-medium);
 }
