@@ -39,8 +39,8 @@ a.button {
     border-radius: 4px;
     box-shadow: var(--button-shadow-color) var(--button-offset)
         var(--button-offset) 0 0,
-        var(--button-border-color) var(--button-offset)
-        var(--button-offset) 0 1px;
+        var(--button-border-color) var(--button-offset) var(--button-offset) 0
+            1px;
     box-sizing: border-box;
     color: var(--button-text-color);
     cursor: pointer;
@@ -76,7 +76,7 @@ a.button:hover {
     box-shadow: var(--button-shadow-color) calc(var(--button-offset) - 1px)
         calc(var(--button-offset) - 1px) 0 0,
         var(--button-border-color) calc(var(--button-offset) - 1px)
-        calc(var(--button-offset) - 1px) 0 1px;
+            calc(var(--button-offset) - 1px) 0 1px;
     transform: translate(-1px, -1px);
 }
 
@@ -85,10 +85,10 @@ a.button:active {
     outline: 0;
     transform: translate(calc(var(--button-offset) / 2),
             calc(var(--button-offset) / 2));
-    box-shadow: var(--button-shadow-color)
-        calc(var(--button-offset) / 2) calc(var(--button-offset) / 2) 0 0,
+    box-shadow: var(--button-shadow-color) calc(var(--button-offset) / 2)
+        calc(var(--button-offset) / 2) 0 0,
         var(--button-border-color) calc(var(--button-offset) / 2)
-        calc(var(--button-offset) / 2) 0 1px;
+            calc(var(--button-offset) / 2) 0 1px;
 }
 
 @media (min-width: 768px) {
@@ -429,6 +429,26 @@ footer .footer-content ul li a {
     opacity: 0;
     transform: translateX(-100px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.technology-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.project-item .technology-tag {
+    background-color: var(--accent-color);
+    color: var(--button-text-color);
+    font-size: calc(var(--base-size) * 0.8);
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    font-family: var(--font-body);
+    font-weight: 500;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 /*
