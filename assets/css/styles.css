@@ -392,11 +392,11 @@ footer .footer-content ul li a {
 .project-item .project-image {
     flex: 1;
     /*max-width: 45%;*/
-    height: auto;
-    width: auto;
-    max-height: 100vh;
+    /*height: auto;
+    width: auto;*/
+    max-height: 80vh;
     border-radius: 8px;
-    object-fit: cover;
+    object-fit: fill;
     border: 1px solid var(--main-border-color);
     box-shadow: var(--shadow-medium);
 }
@@ -474,6 +474,7 @@ footer .footer-content ul li a {
         flex-direction: column !important;
         text-align: center;
         transform: translateX(0) !important;
+        margin-bottom: 40px;
     }
 
     .project-item .project-image {
