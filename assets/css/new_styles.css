@@ -106,11 +106,12 @@ body.scrolled nav {
     backdrop-filter: blur(10px);
     border-radius: 12px;
     padding-inline: 16px;
-    margin-inline: var(--main-margin);
+    margin-inline: calc(var(--main-margin) + 4vw);
     z-index: 234;
 }
 
 main {
+    z-index: 4;
     background-color: var(--background-color);
     margin-top: 20px;
     margin-inline: var(--main-margin);
@@ -294,7 +295,7 @@ a:hover {
 }
 
 .top-bg {
-    z-index: 100;
+    z-index: 10;
     height: 44px;
     width: 100%;
     background-color: var(--main-bg-color);
@@ -305,13 +306,27 @@ a:hover {
 .top-bg::after {
     content: '';
     z-index: 101;
-    height: 20px;
-    /*width: 100%;*/
-    margin-inline: var(--main-margin);
+    height: 44px;
+    /*margin-inline: var(--main-margin);*/ left: var(--main-margin); right: var(--main-margin);
+    background-color: var(--background-color);
+    position: fixed;
+    top: 20px;
+    border-radius: 24px;
+    /*padding: 32px;
+    padding-top: calc(32px + var(--nav-distance-to-top));*/
+}
+
+/*
+.top-bg::before {
+    content: '';
+    z-index: -10;
+    height: 30vh;
+    left: var(--main-margin);
+    right: var(--main-margin);
     background-color: var(--background-color);
     position: fixed;
     top: 20px;
     border-radius: 24px;
     padding: 32px;
     padding-top: calc(32px + var(--nav-distance-to-top));
-}
+}*/
