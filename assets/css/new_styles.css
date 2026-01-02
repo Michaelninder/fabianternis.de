@@ -13,7 +13,7 @@
     --main-border-color: light-dark(#d4d4d4, #404040);
     --link-hover-color: light-dark(#1a1a1a, #fef9f3);
     --link-hover-bg: light-dark(#e5e5e5, #525252);
-    --accent-color: light-dark(#3b82f6, #60a5fa);
+    --accent-color: light-dark(#3b5af6, #60a5fa);
     --marker-color: light-dark(yellow, #fbbf24);
     --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.08);
     --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.12);
@@ -56,7 +56,6 @@
 #themeToggle:hover {
     background-color: var(--link-hover-bg);
     color: var(--link-hover-color);
-    /*border-color: var(--accent-color);*/
     box-shadow: var(--shadow-medium);
 }
 
@@ -179,6 +178,46 @@ main {
     top: 0;
 }
 
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.hero-container {
+    padding-block: clamp(2rem, 8vw, 5rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.introduction h2 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    margin: 0;
+    font-weight: 500;
+}
+
+.introduction h3 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 5vw, 3.5rem);
+    line-height: 1.2;
+    margin-top: 1rem;
+    font-weight: 700;
+    max-width: 1000px;
+}
+
+.introduction .name {
+    color: var(--accent-color);
+    position: relative;
+    white-space: nowrap;
+}
+
+.introduction .location {
+    font-style: italic;
+    font-family: var(--font-display);
+    font-weight: 600;
+}
+
 nav {
     display: flex;
     flex-direction: row;
@@ -186,7 +225,6 @@ nav {
     align-items: center;
     margin-bottom: var(--base-size);
     position: sticky;
-    /*margin-top: calc(var(--nav-distance-to-top));*/
     margin-bottom: calc(-1.45 * var(--nav-distance-to-top));
     top: 48px;
     z-index: 1000;
@@ -250,8 +288,6 @@ h2 {
     margin-bottom: calc(var(--base-size) / 2);
 }
 
-/* Socials */
-
 .socials-container {
     display: flex;
     flex-direction: column;
@@ -299,21 +335,10 @@ h2 {
     rotate: 0deg;
 }
 
-/*
-.social-icon-link img:hover {
-    scale: 1.25;
-}
-*/
 .social-icon-link:hover img {
     scale: 1.35;
     rotate: -4.5deg;
 }
-
-/*
-.social-icon-link:hover {
-    padding-inline: 3px;
-}
-*/
 
 @media (prefers-color-scheme: dark) {
     .social-icon-link img {
@@ -333,7 +358,6 @@ h2 {
     font-size: 0.8rem;
     white-space: nowrap;
     opacity: 0;
-    /*visibility: hidden;*/
     transition:
         opacity 0.369s ease,
         visibility 0.2s ease,
@@ -342,13 +366,11 @@ h2 {
         scale 0.25s ease-in;
     pointer-events: none;
     rotate: -4.5deg;
-    /*scale: .75;*/
 }
 
 .social-icon-link:hover .tooltip {
     rotate: 0deg;
     opacity: 1;
-    /*visibility: visible;*/
     transform: translateX(-50%) translateY(-2px);
     scale: 1;
 }
@@ -370,31 +392,13 @@ a:hover {
     content: '';
     z-index: 101;
     height: 51px;
-    /*margin-inline: var(--main-margin);*/
     left: var(--main-margin);
     right: var(--main-margin);
     background-color: var(--background-color);
     position: fixed;
     top: 20px;
     border-radius: 24px;
-    /*padding: 32px;
-    padding-top: calc(32px + var(--nav-distance-to-top));*/
 }
-
-/*
-.top-bg::before {
-    content: '';
-    z-index: -10;
-    height: 30vh;
-    left: var(--main-margin);
-    right: var(--main-margin);
-    background-color: var(--background-color);
-    position: fixed;
-    top: 20px;
-    border-radius: 24px;
-    padding: 32px;
-    padding-top: calc(32px + var(--nav-distance-to-top));
-}*/
 
 span.marker-highlight {
     position: relative;
@@ -413,17 +417,12 @@ span.marker-highlight:after {
     background-size: contain;
     background-repeat: no-repeat;
     opacity: 0.369;
-
     filter: brightness(0) saturate(100%) invert(75%) sepia(90%) hue-rotate(369deg) saturate(300%) contrast(100%);
-
-    /*color: var(--marker-color);*/
-
     transition-duration: 0.25s;
 }
 
 span.marker-highlight:hover:after {
     opacity: 0.2;
-    /*filter: brightness(0) saturate(100%) invert(50%) sepia(50%) hue-rotate(200deg) saturate(200%) contrast(100%);*/
     transition-duration: 0.2s;
 }
 
@@ -458,9 +457,7 @@ footer .footer-content ul li a {
 
 .prevent-select {
     -webkit-user-select: none;
-    /* Safari */
     -ms-user-select: none;
-    /* IE 10 and IE 11 */
     user-select: none;
 }
 
@@ -492,7 +489,6 @@ footer .footer-content ul li a {
     transform: scale(1.005);
 }
 
-/* Projects */
 .projects-group {
     display: flex;
     flex-direction: column;
@@ -573,9 +569,6 @@ a.button:hover .button-icon {
 
 .project-item .project-image {
     flex: 1;
-    /*max-width: 45%;*/
-    /*height: auto;
-    width: auto;*/
     max-height: 80vh;
     width: 100%;
     border-radius: 8px;
