@@ -37,10 +37,7 @@ a.button {
     background-image: none;
     border: 1px solid var(--button-border-color);
     border-radius: 4px;
-    box-shadow: var(--button-shadow-color) var(--button-offset)
-        var(--button-offset) 0 0,
-        var(--button-border-color) var(--button-offset) var(--button-offset) 0
-            1px;
+    box-shadow: var(--button-shadow-color) var(--button-offset) var(--button-offset) 0 0, var(--button-border-color) var(--button-offset) var(--button-offset) 0 1px;
     box-sizing: border-box;
     color: var(--button-text-color);
     cursor: pointer;
@@ -73,22 +70,15 @@ a.button:focus {
 a.button:hover {
     text-decoration: none;
     background-color: var(--button-bg);
-    box-shadow: var(--button-shadow-color) calc(var(--button-offset) - 1px)
-        calc(var(--button-offset) - 1px) 0 0,
-        var(--button-border-color) calc(var(--button-offset) - 1px)
-            calc(var(--button-offset) - 1px) 0 1px;
+    box-shadow: var(--button-shadow-color) calc(var(--button-offset) - 1px) calc(var(--button-offset) - 1px) 0 0, var(--button-border-color) calc(var(--button-offset) - 1px) calc(var(--button-offset) - 1px) 0 1px;
     transform: translate(-1px, -1px);
 }
 
 a.button:active {
     box-shadow: rgba(0, 0, 0, 0.125) 0 3px 5px inset;
     outline: 0;
-    transform: translate(calc(var(--button-offset) / 2),
-            calc(var(--button-offset) / 2));
-    box-shadow: var(--button-shadow-color) calc(var(--button-offset) / 2)
-        calc(var(--button-offset) / 2) 0 0,
-        var(--button-border-color) calc(var(--button-offset) / 2)
-            calc(var(--button-offset) / 2) 0 1px;
+    transform: translate(calc(var(--button-offset) / 2), calc(var(--button-offset) / 2));
+    box-shadow: var(--button-shadow-color) calc(var(--button-offset) / 2) calc(var(--button-offset) / 2) 0 0, var(--button-border-color) calc(var(--button-offset) / 2) calc(var(--button-offset) / 2) 0 1px;
 }
 
 @media (min-width: 768px) {
@@ -426,8 +416,9 @@ footer .footer-content ul li a {
     background-color: transparent;
     border-radius: 0;
     border: none;
-    opacity: 0;
-    transform: translateX(-100px);
+    /*opacity: 0;
+    transform: translateX(-100px);*/
+    transform: translateX(-20px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
@@ -477,7 +468,8 @@ footer .footer-content ul li a {
 }
 
 .project-item:nth-child(even) {
-    transform: translateX(100px);
+    /*transform: translateX(100px);*/
+    transform: translateX(20px);
 }
 
 .project-item:nth-child(even).fade-in {

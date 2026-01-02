@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fabian Ternis</title>
+    <link rel="stylesheet" href="assets/css/new_styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Montserrat:wght@500;700&display=swap" rel="stylesheet" />
+
+    <script>
+        const theme = localStorage.getItem('theme-preference') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+    </script>
+  </head>
+  <body class="scrolled">
+    <div class="top-bg"></div>
+    <nav>
+      <a class="logo prevent-select" href="/#">fabianternis</a>
+      <ul class="nav-links prevent-select">
+        <li class="nav-link"><a href="#">Link</a></li>
+        <div id="themeToggle">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="dark-icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+            </svg>
+            <!--svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="light-icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+            </svg-->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="light-icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="auto-icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25" />
+            </svg>
+        </div>
+      </ul>
+    </nav>
+    <main>
+      <div class="content-wrapper">
+        <div class="hero-container">
+            <!--div class="introduction">
+                <h2>Hey there 👋!</h2>
+                <h3>I'm <span class="name">Fabian Ternis</span>, a self-taught <span class="location">German</span> web developer <span class="specialization">specializing in Laravel and PHP.</span></h3>
+            </div-->
+        <div class="introduction">
+            <h2>Hallo <span class="animated-hand">👋</span><span class="animated-exclamation_mark">!</span></h2>
+            <h3>Ich bin <span class="name"><span aria-label="F">F</span><span aria-label="a">a</span><span aria-label="b">b</span><span aria-label="i">i</span><span aria-label="a">a</span><span aria-label="n">n</span>
+<span aria-label="T">T</span><span aria-label="e">e</span><span aria-label="r">r</span><span aria-label="n">n</span><span aria-label="i">i</span><span aria-label="s">s</span></span>.<br>Ein selbsterlernter Webentwickler aus <span class="location">Rheinland-Pfalz</span>, der sich auf <span class="specialization">Laravel und PHP spezialisiert</span> hat.</h3>
+        </div>
+        </div>
+        <div class="socials-container">
+          <h2 class="prevent-select"><span class="marker-highlight">Socialmedia</span> & Co.</h2>
+          <div class="social-links-container">
+            <a href="https://github.com/michaelninder" target="_blank" class="social-icon-link"><div class="tooltip">GitHub</div><img src="assets/svg/socials/github.svg" alt="GitHub" /></a>
+            <a href="https://codepen.io/Michaelninder" target="_blank" class="social-icon-link"><div class="tooltip">CodePen</div><img src="assets/svg/socials/codepen.svg" alt="CodePen" /></a>
+            <a href="https://youtube.com/@michaelninder" target="_blank" class="social-icon-link"><div class="tooltip">YouTube</div><img src="assets/svg/socials/youtube.svg" alt="YouTube" /></a>
+            <a href="https://tiktok.com/michaelninder" target="_blank" class="social-icon-link"><div class="tooltip">TikTok</div><img src="assets/svg/socials/tiktok.svg" alt="TikTok" /></a>
+            <a href="https://twitch.tv/michaelninder" target="_blank" class="social-icon-link"><div class="tooltip">Twitch</div><img src="assets/svg/socials/twitch.svg" alt="Twitch" /></a>
+            <a href="https://x.com/micha_was_taken" target="_blank" class="social-icon-link"><div class="tooltip">X / Twitter</div><img src="assets/svg/socials/twitter.svg" alt="X / Twitter" /></a>
+            <a href="https://instagram.com/fabianternis" target="_blank" class="social-icon-link"><div class="tooltip">Instagram</div><img src="assets/svg/socials/instagram.svg" alt="Instagram" /></a>
+            <a href="https://modrinth.com/user/michaelninder" target="_blank" class="social-icon-link"><div class="tooltip">Modrinth</div><img src="assets/svg/socials/modrinth.svg" alt="Modrinth" /></a>
+          </div>
+        </div>
+        <div class="links-grid">
+          <section class="link-category">
+            <h2>Webseiten und Projekte</h2>
+            <div class="link-group">
+              <a href="https://fabianternis.dev" target="_blank">fabianternis.dev (EN)</a>
+              <a href="https://fternis.de" target="_blank">fternis.de (EN)</a>
+              <a href="https://dsc.pics" target="_blank">dsc.pics (EN/DE/FR)</a>
+              <a href="https://heimatverein-floersheim-dalsheim.de" target="_blank">heimatverein-floersheim-dalsheim.de (DE)</a>
+            </div>
+          </section>
+        </div>
+        <section id="my-work">
+          <div class="projects-grid">
+            <h2>Meine Arbeiten</h2>
+            <div class="projects-group">
+              <div class="project-item">
+                <div class="project-info">
+                  <h3 class="project-title">fabianternis.dev</h3>
+                  <div class="project-description">Meine persönliche Webseite, die einen Überblick über meine Projekte und Arbeiten bietet, ergänzt durch Informationen über mich und meine Interessen.</div>
+                  <div class="technology-tags"><span class="technology-tag">localStorage</span></div>
+                  <div class="project-links">
+                    <a href="https://fabianternis.dev" class="project-link button" target="_blank"><img src="assets/svg/open-link.svg" class="button-icon" />Webseite öffnen</a>
+                    <a href="https://github.com/Michaelninder/websites-sm/blob/main/fabianternis.dev.html" class="project-link button" target="_blank"><img src="assets/svg/socials/github.svg" class="button-icon" />Github Repo</a>
+                  </div>
+                </div>
+                <img src="assets/img/projects/fabianternis-dev.png" alt="fabianternis.dev Landingpage" class="project-image" />
+              </div>
+              <div class="project-item">
+                <div class="project-info">
+                  <h3 class="project-title">louixch.de</h3>
+                  <div class="project-description">Eine Webseite für Louixch, die seine Projekte und Arbeiten vorstellt und Einblicke in seine Interessen und Fähigkeiten gibt.</div>
+                  <div class="technology-tags"><span class="technology-tag">External REST-API</span><span class="technology-tag">skinview3d</span></div>
+                  <div class="project-links">
+                    <a href="https://louixch.de" class="project-link button" target="_blank"><img src="assets/svg/open-link.svg" class="button-icon" />Webseite öffnen</a>
+                    <a href="https://github.com/michaelninder/Louixch.de" class="project-link button" target="_blank"><img src="assets/svg/socials/github.svg" class="button-icon" />Github Repo</a>
+                  </div>
+                </div>
+                <img src="assets/img/projects/louixch-de.png" alt="louixch.de Landingpage" class="project-image" />
+              </div>
+              <div class="project-item">
+                <div class="project-info">
+                  <h3 class="project-title">ivoternis.de</h3>
+                  <div class="project-description">Eine Webseite für Ivo Ternis, die seine Projekte und Arbeiten präsentiert, einschließlich Informationen zu seinen Interessen und Fähigkeiten.</div>
+                  <div class="technology-tags"><span class="technology-tag">External REST-API</span><span class="technology-tag">Chess.com</span></div>
+                  <div class="project-links">
+                    <a href="https://ivoternis.de" class="project-link button" target="_blank"><img src="assets/svg/open-link.svg" class="button-icon" />Webseite öffnen</a>
+                    <a href="https://github.com/ivoternis/ivoternis.de" class="project-link button" target="_blank"><img src="assets/svg/socials/github.svg" class="button-icon" />Github Repo</a>
+                  </div>
+                </div>
+                <img src="assets/img/projects/ivoternis-de.png" alt="ivoternis.de Landingpage" class="project-image" />
+              </div>
+              <div class="project-item">
+                <div class="project-info">
+                  <h3 class="project-title">fternis.de</h3>
+                  <div class="project-description">Meine persönliche Webseite, die meine Projekte und Arbeiten vorstellt und detaillierte Informationen über mich und meine Interessen enthält.</div>
+                  <div class="technology-tags"><span class="technology-tag">TailwindCSS</span><span class="technology-tag">Laravel</span></div>
+                  <div class="project-links">
+                    <a href="https://fternis.de" class="project-link button" target="_blank"><img src="assets/svg/open-link.svg" class="button-icon" />Webseite öffnen</a>
+                    <a href="https://github.com/michaelninder/portfolio" class="project-link button" target="_blank"><img src="assets/svg/socials/github.svg" class="button-icon" />Github Repo</a>
+                  </div>
+                </div>
+                <img src="assets/img/projects/fternis-de.png" alt="fternis.de Landingpage" class="project-image" />
+              </div>
+              <div class="project-item">
+                <div class="project-info">
+                  <h3 class="project-title">dsc.pics</h3>
+                  <div class="project-description">Eine Bilder- und Videohosting-Plattform (bis zu 50MB), ideal für Discord und andere soziale Medien, inklusive Link-Kürzungsfunktion.</div>
+                  <div class="technology-tags"><span class="technology-tag">Laravel Sanctum</span><span class="technology-tag">MySQL</span><span class="technology-tag">TailwindCSS</span></div>
+                  <div class="project-links">
+                    <a href="https://dsc.pics" class="project-link button" target="_blank"><img src="assets/svg/open-link.svg" class="button-icon" />Webseite öffnen</a>
+                    <a href="https://github.com/EuropeHost/dsc.pics" class="project-link button" target="_blank"><img src="assets/svg/socials/github.svg" class="button-icon" />Github Repo</a>
+                  </div>
+                </div>
+                <img src="assets/img/projects/dsc-pics.png" alt="dsc.pics Landingpage" class="project-image" />
+              </div>
+              <div class="project-item">
+                <div class="project-info">
+                  <h3 class="project-title">heimatverein-floersheim-dalsheim.de</h3>
+                  <div class="project-description">Eine Webseite für den Heimatverein Flörsheim-Dalsheim mit Funktionen zur Buchbestellung, inklusive E-Mail-Bestätigung.</div>
+                  <div class="technology-tags"><span class="technology-tag">Laravel</span><span class="technology-tag">MySQL</span><span class="technology-tag">TailwindCSS</span></div>
+                  <div class="project-links">
+                    <a href="https://heimatverein-floersheim-dalsheim.de" class="project-link button" target="_blank"><img src="assets/svg/open-link.svg" class="button-icon" />Webseite öffnen</a>
+                  </div>
+                </div>
+                <img src="assets/img/projects/heimatverein-floersheim-dalsheim-de.png" alt="Heimatverein Landingpage" class="project-image" />
+              </div>
+              <div class="project-item">
+                <div class="project-info">
+                  <h3 class="project-title">Kaufenhof.de</h3>
+                  <div class="project-description">Onlineshop zum kaufen von (von Admins) eingestellten Süßigkeiten. Nur Barzahlung.</div>
+                  <div class="technology-tags"><span class="technology-tag">Laravel</span><span class="technology-tag">MySQL</span><span class="technology-tag">TailwindCSS</span></div>
+                  <div class="project-links">
+                    <a href="https://kaufenhof.de" class="project-link button" target="_blank"><img src="assets/svg/open-link.svg" class="button-icon" />Webseite öffnen</a>
+                  </div>
+                </div>
+                <img src="assets/img/projects/kaufenhof-de.png" alt="Kaufenhof Landingpage" class="project-image" />
+              </div>
+            </div>
+            <div class="loading-grid">
+              <div class="loader"><span class="loader-spinner"></span></div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer>
+      <div class="footer-content">
+        <ul>
+          <li><a href="https://fternis.de/imprint">Impressum</a></li>
+          <li><a href="https://fternis.de/privacy">Datenschutz</a></li>
+          <li><a href="#">Kontakt</a></li>
+        </ul>
+      </div>
+    </footer>
+    <script src="assets/js/new_scripts.js"></script>
+  </body>
+</html>
