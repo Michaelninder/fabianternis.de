@@ -426,8 +426,9 @@ footer .footer-content ul li a {
     background-color: transparent;
     border-radius: 0;
     border: none;
-    opacity: 0;
-    transform: translateX(-100px);
+    /*opacity: 0;
+    transform: translateX(-100px);*/
+    transform: translateX(-20px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
@@ -477,7 +478,8 @@ footer .footer-content ul li a {
 }
 
 .project-item:nth-child(even) {
-    transform: translateX(100px);
+    /*transform: translateX(100px);*/
+    transform: translateX(20px);
 }
 
 .project-item:nth-child(even).fade-in {
