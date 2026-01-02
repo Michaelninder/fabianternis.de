@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:wght@600;700&family=Space+Grotesk:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap');
+
+:root {
+    color-scheme: light dark;
+    --text-color: light-dark(#2c3e50, #e0e0e0);
+    --background-color: light-dark(whitesmoke, #333);
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+        sans-serif;
+    --font-heading: 'Space Grotesk', 'Inter', sans-serif;
+    --font-display: 'Playfair Display', serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --main-margin: clamp(0.1rem, 4vw, 3rem);
+    --base-size: clamp(1rem, 2vw, 1.5rem);
+    --main-bg-color: light-dark(#fef9f3, #1a1a1a);
+    --main-border-color: light-dark(#d4d4d4, #404040);
+    --link-hover-color: light-dark(#1a1a1a, #fef9f3);
+    --link-hover-bg: light-dark(#e5e5e5, #525252);
+    --accent-color: light-dark(#3b82f6, #60a5fa);
+    --marker-color: light-dark(yellow);
+    --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.12);
+    --nav-distance-to-top: 4rem;
+    --skeleton-base: light-dark(#e0e0e0, #2a2a2a);
+    --skeleton-highlight: light-dark(#f5f5f5, #3a3a3a);
+
+    /* Button specific variables */
+    --button-bg: var(--accent-color);
+    --button-text-color: light-dark(#fef9f3, #1a1a1a);
+    --button-border-color: light-dark(#3b82f6, #60a5fa);
+    --button-shadow-color: light-dark(#000, #fff);
+    --button-offset: 4px;
+}
+
+a.button {
+    appearance: none;
+    background-color: var(--button-bg);
+    background-image: none;
+    border: 1px solid var(--button-border-color);
+    border-radius: 4px;
+    box-shadow: var(--button-shadow-color) var(--button-offset) var(--button-offset) 0 0, var(--button-border-color) var(--button-offset) var(--button-offset) 0 1px;
+    box-sizing: border-box;
+    color: var(--button-text-color);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-size: var(--base-size);
+    font-weight: 400;
+    line-height: 20px;
+    margin: 0 5px 10px 0;
+    overflow: visible;
+    padding: 12px 40px;
+    text-align: center;
+    text-transform: none;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: all 0.1s ease-out;
+}
+
+a.button:focus {
+    outline: none;
+    text-decoration: none;
+}
+
+a.button:hover {
+    text-decoration: none;
+    background-color: var(--button-bg);
+    transform: translate(-1px, -1px);
+}
+
+a.button:active {
+    outline: 0;
+    transform: translate(calc(var(--button-offset) / 2), calc(var(--button-offset) / 2));
+}
+
+@media (min-width: 768px) {
+    a.button {
+        padding: 12px 50px;
+    }
+}
+
+::selection {
+    color: var(--background-color);
+    background-color: var(--text-color);
+}
+
+html,
+body {
+    min-height: calc(100vh - var(--main-margin) * 2);
+    color: var(--text-color);
+    background-color: var(--main-bg-color);
+    font-family: var(--font-body);
+    cursor: url('/assets/svg/arrowhead-rounded-outline.svg'), auto;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+body.scrolled nav {
+    background-color: rgba(45, 45, 45, 0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding-inline: 16px;
+    margin-inline: var(--main-margin);
+    z-index: 234;
+}
+
+main {
+    background-color: var(--background-color);
+    margin-top: 20px;
+    margin-inline: var(--main-margin);
+    padding: 32px;
+    padding-top: calc(32px + var(--nav-distance-to-top));
+    border-radius: 24px;
+    cursor: url('/assets/svg/arrowhead-rounded-outline.svg'), auto;
+    flex-grow: 1;
+    overflow-y: auto;
+    position: relative;
+    top: 0;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--base-size);
+    position: sticky;
+    /*margin-top: calc(var(--nav-distance-to-top));*/
+    margin-bottom: calc(-1.45 * var(--nav-distance-to-top));
+    top: 16px;
+    z-index: 1000;
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease, border-radius 0.3s ease, padding 0.3s ease, margin 0.3s ease;
+    padding-inline: 0.25rem;
+    padding-block: 1rem;
+}
+
+nav ul {
+    display: flex;
+    gap: clamp(7px, 2vw, 27px);
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    font-family: var(--font-body);
+}
+
+h1 {
+    font-family: var(--font-heading);
+    font-size: calc(var(--base-size) * 1.8);
+    margin-bottom: var(--base-size);
+}
+
+a.logo {
+    font-size: calc(var(--base-size) * 1.2);
+    line-height: 1;
+    font-family: var(--font-display);
+    font-weight: 50;
+    margin: 0;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+a.logo:hover {
+    text-decoration: none;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    transform: none;
+}
+
+h2 {
+    font-family: var(--font-heading);
+    font-size: calc(var(--base-size) * 1.2);
+    margin-top: var(--base-size);
+    margin-bottom: calc(var(--base-size) / 2);
+}
+
+
+
+
+
+/* Socials */
+
+.socials-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3.69px;
+    margin-bottom: var(--base-size);
+}
+
+.social-links-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: clamp(5px, 2vw, 50px);
+    margin-top: 16px;
+}
+
+.social-links-container a:hover {
+    transform: none;
+}
+
+.social-icon-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--background-color);
+    border: 1px solid var(--main-border-color);
+    color: var(--text-color);
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.1s ease,
+        color 0.2s ease;
+}
+
+.social-icon-link img {
+    width: 24px;
+    height: 24px;
+    filter: invert(var(--filter-svg-invert, 0%));
+    transition-duration: 0.3s;
+    rotate: 0deg;
+}
+/*
+.social-icon-link img:hover {
+    scale: 1.25;
+}
+*/
+.social-icon-link:hover img {
+    scale: 1.35;
+    rotate: -4.5deg;
+}
+/*
+.social-icon-link:hover {
+    padding-inline: 3px;
+}
+*/
+
+@media (prefers-color-scheme: dark) {
+    .social-icon-link img {
+        --filter-svg-invert: 100%;
+    }
+}
+
+.social-icon-link .tooltip {
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--text-color);
+    color: var(--background-color);
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    /*visibility: hidden;*/
+    transition: opacity 0.369s ease, visibility 0.2s ease,
+        rotate 0.33s ease-in-out, transform 0.3s ease-in-out,
+        scale 0.25s ease-in;
+    pointer-events: none;
+    rotate: -4.5deg;
+    /*scale: .75;*/
+}
+
+.social-icon-link:hover .tooltip {
+    rotate: 0deg;
+    opacity: 1;
+    /*visibility: visible;*/
+    transform: translateX(-50%) translateY(-2px);
+    scale: 1;
+}
+
+
+
+a:hover {
+    cursor: url('/assets/svg/hand-pointer.svg'), pointer;
+}
+
+.top-bg {
+    z-index: 100;
+    height: 25px;
+    width: 100%;
+    background-color: var(--main-bg-color);
+    position: fixed;
+    top: 0;
+}
