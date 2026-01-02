@@ -24,3 +24,20 @@ themeToggle.addEventListener("click", () => {
 });
 
 applyTheme(getStoredTheme());
+
+
+const nameContainer = document.querySelector('.name');
+const characters = nameContainer.querySelectorAll('span:not(.space)');
+const cursorUrl = "url('/assets/svg/arrowhead-rounded-outline.svg'), auto";
+
+characters.forEach((char) => {
+    char.style.cursor = cursorUrl;
+
+    char.addEventListener('mouseenter', () => {
+        char.classList.add('bounce');
+    });
+
+    char.addEventListener('animationend', () => {
+        char.classList.remove('bounce');
+    });
+});

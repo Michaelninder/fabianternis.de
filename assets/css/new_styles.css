@@ -197,19 +197,70 @@ main {
     font-weight: 500;
 }
 
+.introduction h2 .animated-hand {
+    display: inline-block;
+    transform-origin: 70% 70%;
+    transition: all .3s ease-in-out;
+}
+
+.introduction h2:hover .animated-hand {
+    animation: wave-animation 0.5s infinite;
+    margin-right: 5px;
+}
+
+.introduction h2 .animated-exclamation_mark {
+    display: inline-block;
+    transition: all .25s ease;
+}
+
+.introduction h2:hover .animated-exclamation_mark {
+    margin-left: 7px;
+    transform: rotate(3deg);
+    scale: 1.25;
+}
+
+@keyframes wave-animation {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(20deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(20deg); }
+    100% { transform: rotate(0deg); }
+}
+
 .introduction h3 {
     font-family: var(--font-heading);
     font-size: clamp(1.8rem, 5vw, 3.5rem);
     line-height: 1.2;
     margin-top: 1rem;
     font-weight: 700;
-    max-width: 1000px;
+    max-width: 1100px;
 }
 
 .introduction .name {
     color: var(--accent-color);
     position: relative;
     white-space: nowrap;
+    cursor: url('/assets/svg/hand-pointer.svg'), pointer !important;
+}
+
+.name span {
+    display: inline-block;
+    cursor: default;
+    transition: color 0.2s ease;
+}
+
+.name span.bounce {
+    animation: letter-bounce 0.4s ease;
+    color: #f560fa; 
+}
+
+@keyframes letter-bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px) scale(1.2);
+    }
 }
 
 .introduction .location {
