@@ -37,7 +37,6 @@ a.button {
     background-image: none;
     border: 1px solid var(--button-border-color);
     border-radius: 4px;
-    box-shadow: var(--button-shadow-color) var(--button-offset) var(--button-offset) 0 0, var(--button-border-color) var(--button-offset) var(--button-offset) 0 1px;
     box-sizing: border-box;
     color: var(--button-text-color);
     cursor: pointer;
@@ -134,7 +133,7 @@ nav {
     position: sticky;
     /*margin-top: calc(var(--nav-distance-to-top));*/
     margin-bottom: calc(-1.45 * var(--nav-distance-to-top));
-    top: 36px;
+    top: 48px;
     z-index: 1000;
     transition: background-color 0.3s ease, backdrop-filter 0.3s ease, border-radius 0.3s ease, padding 0.3s ease, margin 0.3s ease;
     padding-inline: 0.25rem;
@@ -272,9 +271,7 @@ h2 {
     white-space: nowrap;
     opacity: 0;
     /*visibility: hidden;*/
-    transition: opacity 0.369s ease, visibility 0.2s ease,
-        rotate 0.33s ease-in-out, transform 0.3s ease-in-out,
-        scale 0.25s ease-in;
+    transition: opacity 0.369s ease, visibility 0.2s ease, rotate 0.33s ease-in-out, transform 0.3s ease-in-out, scale 0.25s ease-in;
     pointer-events: none;
     rotate: -4.5deg;
     /*scale: .75;*/
@@ -306,7 +303,7 @@ a:hover {
 .top-bg::after {
     content: '';
     z-index: 101;
-    height: 44px;
+    height: 51px;
     /*margin-inline: var(--main-margin);*/ left: var(--main-margin); right: var(--main-margin);
     background-color: var(--background-color);
     position: fixed;
@@ -330,3 +327,90 @@ a:hover {
     padding: 32px;
     padding-top: calc(32px + var(--nav-distance-to-top));
 }*/
+
+
+
+
+span.marker-highlight {
+    position: relative;
+    display: inline-block;
+}
+
+span.marker-highlight:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -5px;
+    transform: translateY(-50%);
+    width: 250px;
+    height: 42px;
+    background-image: url('/assets/svg/marker/aggressive-stroak-sm.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.369;
+
+    filter: brightness(0) saturate(100%) invert(75%) sepia(90%)
+        hue-rotate(369deg) saturate(300%) contrast(100%);
+
+    /*color: var(--marker-color);*/
+
+    transition-duration: 0.25s;
+}
+
+span.marker-highlight:hover:after {
+    opacity: 0.2;
+    /*filter: brightness(0) saturate(100%) invert(50%) sepia(50%) hue-rotate(200deg) saturate(200%) contrast(100%);*/
+    transition-duration: 0.2s;
+}
+
+footer {
+    margin-top: 24px;
+    padding: var(--base-size);
+    text-align: center;
+    color: var(--text-color);
+    background-color: var(--main-bg-color);
+    flex-shrink: 0;
+    font-family: var(--font-body);
+}
+
+footer .footer-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+footer .footer-content ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.prevent-select {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none;
+}
+
+
+
+
+
+/* Projects */
+.project-item .project-image {
+    flex: 1;
+    /*max-width: 45%;*/
+    /*height: auto;
+    width: auto;*/
+    max-height: 80vh;
+    border-radius: 8px;
+    object-fit: contain;
+    border: 1px solid var(--main-border-color);
+    box-shadow: var(--shadow-medium);
+    outline: 1px solid var(--main-border-color);
+    outline-offset: -1px;
+}
