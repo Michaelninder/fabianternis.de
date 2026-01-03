@@ -21,6 +21,8 @@
     --skeleton-base: light-dark(#e0e0e0, #2a2a2a);
     --skeleton-highlight: light-dark(#f5f5f5, #3a3a3a);
 
+    --filter-svg-invert:  light-dark(0%, 100%);
+
     --button-bg: var(--accent-color);
     --button-text-color: light-dark(#fef9f3, #1a1a1a);
     --button-border-color: light-dark(#3b82f6, #60a5fa);
@@ -35,6 +37,12 @@
 }
 
 [data-theme="dark"] {
+    color-scheme: dark;
+    --filter-svg-invert: 100%;
+}
+
+
+[data-theme="auto"] {
     color-scheme: dark;
 }
 
@@ -450,11 +458,12 @@ h2 {
     rotate: -4.5deg;
 }
 
+/**/
 @media (prefers-color-scheme: dark) {
-    .social-icon-link img {
+    [data-theme="auto"].social-icon-link img {
         --filter-svg-invert: 100%;
     }
-}
+}/**/
 
 .social-icon-link .tooltip {
     position: absolute;
@@ -791,10 +800,18 @@ html[lang="de"] [data-language="de"] {
 .site-info {
     cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🦄</text></svg>") 16 0, auto;
     margin: clamp(2rem, 5vw, 4rem) 0;
+    margin-top: -2rem;
     padding: 2rem;
     border-left: 4px solid var(--accent-color);
     background: linear-gradient(90deg, var(--skeleton-base) 0%, transparent 100%);
     border-radius: 0 12px 12px 0;
+}
+
+
+.site-info:hover {
+    /*border-left: 4px dashed var(--accent-color);*/
+    /*border-left: 5px dashed var(--accent-color);
+    border-radius: 8px 16px 16px 8px;*/
 }
 
 .site-info h2 {
@@ -816,6 +833,12 @@ html[lang="de"] [data-language="de"] {
     font-weight: 600;
     color: var(--accent-color);
     display: inline-block;
+}
+
+.text-animated:hover {
+    font-weight: 666;
+    color: var(--accent-color);
+    scale: 1.075;
 }
 
 .text-animated::after {
@@ -843,7 +866,6 @@ html[lang="de"] [data-language="de"] {
 
 .cursor-animated:hover {
     animation: cursor-change-animated 1.5s infinite;
-    scale: 1.075;
     color: var(--accent-color);
 }
 
