@@ -508,6 +508,21 @@ a:hover {
     position: fixed;
     top: 20px;
     border-radius: 24px;
+    transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                /*top 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                left 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                right 0.4s cubic-bezier(0.4, 0, 0.2, 1),*/
+                border-radius 0.4s ease;
+    pointer-events: none;
+}
+
+body.content-reload .top-bg::after {
+    /*height: calc(100vh - 36px);*/
+    height: 100vh;
+    /*top: 0;
+    left: 0;
+    right: 0;
+    border-radius: 0;*/
 }
 
 span.marker-highlight {

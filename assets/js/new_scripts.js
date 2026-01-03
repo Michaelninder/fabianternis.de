@@ -1,6 +1,7 @@
 const themeToggle = document.getElementById("themeToggle");
 const langToggle = document.getElementById("languageSwitch");
 const htmlElement = document.documentElement;
+const body = document.body;
 
 const getStoredTheme = () => localStorage.getItem("theme") || "auto";
 const getStoredLang = () => localStorage.getItem("lang") || "en";
@@ -10,15 +11,29 @@ const applyTheme = (theme) => {
     localStorage.setItem("theme", theme);
 };
 
+const executeWithTransition = (callback) => {
+    body.classList.add("content-reload");
+
+    setTimeout(() => {
+        callback();
+        
+        setTimeout(() => {
+            body.classList.remove("content-reload");
+        }, 100); 
+    }, 400);
+};
+
 const applyLanguage = (lang) => {
     htmlElement.setAttribute("lang", lang);
     localStorage.setItem("lang", lang);
     initNameAnimations();
+    langToggle.innerHTML = `<img src="assets/img/flags/${lang}.png" class="flag">`;
 };
 
 const initNameAnimations = () => {
+    const lang = htmlElement.getAttribute("lang");
     const activeIntroduction = document.querySelector(
-        `.introduction[data-language="${htmlElement.getAttribute("lang")}"]`
+        `.introduction[data-language="${lang}"]`
     );
     
     if (!activeIntroduction) return;
@@ -31,29 +46,24 @@ const initNameAnimations = () => {
 
     characters.forEach((char) => {
         char.style.cursor = cursorUrl;
-        char.addEventListener("mouseenter", () => {
-            char.classList.add("bounce");
-        });
-        char.addEventListener("animationend", () => {
-            char.classList.remove("bounce");
-        });
+        char.addEventListener("mouseenter", () => char.classList.add("bounce"));
+        char.addEventListener("animationend", () => char.classList.remove("bounce"));
     });
 };
 
 themeToggle.addEventListener("click", () => {
-    const currentTheme = getStoredTheme();
     const themes = ["auto", "light", "dark"];
-    const nextTheme = themes[(themes.indexOf(currentTheme) + 1) % themes.length];
+    const nextTheme = themes[(themes.indexOf(getStoredTheme()) + 1) % themes.length];
+    
+    //executeWithTransition(() => applyTheme(nextTheme));
     applyTheme(nextTheme);
 });
 
 langToggle.addEventListener("click", () => {
     const nextLang = htmlElement.getAttribute("lang") === "en" ? "de" : "en";
-    applyLanguage(nextLang);
-    //langToggle.textContent = nextLang.toUpperCase();
-    langToggle.innerHTML = `<img src="assets/img/flags/${nextLang}.png" class="flag">`;
+    
+    executeWithTransition(() => applyLanguage(nextLang));
 });
 
 applyTheme(getStoredTheme());
 applyLanguage(getStoredLang());
-langToggle.innerHTML = `<img src="assets/img/flags/${htmlElement.getAttribute("lang")}.png" class="flag">`;
