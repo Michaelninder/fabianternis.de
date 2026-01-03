@@ -50,9 +50,10 @@ themeToggle.addEventListener("click", () => {
 langToggle.addEventListener("click", () => {
     const nextLang = htmlElement.getAttribute("lang") === "en" ? "de" : "en";
     applyLanguage(nextLang);
-    langToggle.textContent = nextLang.toUpperCase();
+    //langToggle.textContent = nextLang.toUpperCase();
+    langToggle.innerHTML = `<img src="assets/img/flags/${nextLang}.png" class="flag">`;
 });
 
 applyTheme(getStoredTheme());
 applyLanguage(getStoredLang());
-langToggle.textContent = htmlElement.getAttribute("lang").toUpperCase();
+langToggle.innerHTML = `<img src="assets/img/flags/${htmlElement.getAttribute("lang")}.png" class="flag">`;

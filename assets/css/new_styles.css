@@ -231,11 +231,25 @@ main {
 }
 
 @keyframes wave-animation {
-    0% { transform: rotate(0deg); }
-    25% { transform: rotate(20deg); }
-    50% { transform: rotate(0deg); }
-    75% { transform: rotate(20deg); }
-    100% { transform: rotate(0deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(20deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+
+    75% {
+        transform: rotate(20deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
 }
 
 .introduction h3 {
@@ -262,13 +276,16 @@ main {
 
 .name span.bounce {
     animation: letter-bounce 0.4s ease;
-    color: #f560fa; 
+    color: #f560fa;
 }
 
 @keyframes letter-bounce {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-10px) scale(1.2);
     }
@@ -716,37 +733,39 @@ a.button:hover .button-icon {
 }
 
 [data-language] {
-  display: none;
+    display: none;
 }
 
 html[lang="en"] [data-language="en"] {
-  display: block;
+    display: block;
 }
 
 html[lang="de"] [data-language="de"] {
-  display: block;
+    display: block;
 }
 
 #languageSwitch {
-  cursor: pointer;
-  padding: 8px 12px;
-  border: 1px solid var(--border-color);
-  background: var(--bg-secondary);
-  border-radius: 4px;
-  font-family: inherit;
-  font-weight: bold;
+    cursor: pointer;
+    padding: 6px 10px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-secondary);
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease-in-out;
 }
 
-.name span {
-  display: inline-block;
-  transition: transform 0.2s;
+#languageSwitch:hover {
+    background: var(--bg-hover);
+    border-color: var(--accent-color);
+    transform: scale(1.1) rotate(2deg);
 }
 
-.bounce {
-  animation: bounce 0.5s ease;
-}
-
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+#languageSwitch img.flag {
+    width: 36px;
+    height: auto;
+    display: block;
+    border-radius: 2px;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
 }
