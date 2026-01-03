@@ -714,3 +714,39 @@ a.button:hover .button-icon {
         transform: rotate(360deg);
     }
 }
+
+[data-language] {
+  display: none;
+}
+
+html[lang="en"] [data-language="en"] {
+  display: block;
+}
+
+html[lang="de"] [data-language="de"] {
+  display: block;
+}
+
+#languageSwitch {
+  cursor: pointer;
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  border-radius: 4px;
+  font-family: inherit;
+  font-weight: bold;
+}
+
+.name span {
+  display: inline-block;
+  transition: transform 0.2s;
+}
+
+.bounce {
+  animation: bounce 0.5s ease;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
