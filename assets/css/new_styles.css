@@ -21,6 +21,8 @@
     --skeleton-base: light-dark(#e0e0e0, #2a2a2a);
     --skeleton-highlight: light-dark(#f5f5f5, #3a3a3a);
 
+    --filter-svg-invert: 0%;
+
     --button-bg: var(--accent-color);
     --button-text-color: light-dark(#fef9f3, #1a1a1a);
     --button-border-color: light-dark(#3b82f6, #60a5fa);
@@ -32,10 +34,19 @@
 
 [data-theme="light"] {
     color-scheme: light;
+    --filter-svg-invert: 0%;
 }
 
 [data-theme="dark"] {
     color-scheme: dark;
+    --filter-svg-invert: 100%;
+}
+
+[data-theme="auto"] {
+    color-scheme: light dark;
+    /*--filter-svg-invert: 100%;*/
+    /*--filter-svg-invert: light-dark(40%, 40%) !important;*/
+    --filter-svg-invert: 75%;
 }
 
 #themeToggle {
@@ -191,7 +202,7 @@ main {
 }
 
 .hero-container {
-    padding-block: clamp(2rem, 8vw, 5rem);
+    padding-block: clamp(2rem, 8vw, 5rem) 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -231,11 +242,25 @@ main {
 }
 
 @keyframes wave-animation {
-    0% { transform: rotate(0deg); }
-    25% { transform: rotate(20deg); }
-    50% { transform: rotate(0deg); }
-    75% { transform: rotate(20deg); }
-    100% { transform: rotate(0deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(20deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+
+    75% {
+        transform: rotate(20deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
 }
 
 .introduction h3 {
@@ -262,13 +287,16 @@ main {
 
 .name span.bounce {
     animation: letter-bounce 0.4s ease;
-    color: #f560fa; 
+    color: #f560fa;
 }
 
 @keyframes letter-bounce {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-10px) scale(1.2);
     }
@@ -433,11 +461,12 @@ h2 {
     rotate: -4.5deg;
 }
 
+/*
 @media (prefers-color-scheme: dark) {
     .social-icon-link img {
         --filter-svg-invert: 100%;
     }
-}
+}*/
 
 .social-icon-link .tooltip {
     position: absolute;
@@ -490,7 +519,25 @@ a:hover {
     background-color: var(--background-color);
     position: fixed;
     top: 20px;
+    border-radius: 24px 24px 0 0;
+    transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                /*top 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                left 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                right 0.4s cubic-bezier(0.4, 0, 0.2, 1),*/
+                border-radius 0.4s ease;
+    pointer-events: none;
+}
+
+body.content-reload .top-bg::after {
+    /*height: calc(100vh - 36px);*/
+    height: 100vh;
     border-radius: 24px;
+    /*border-bottom: 4px dashed var(--text-color);*/
+    border-bottom: 4px dashed var(--accent-color);
+    /*top: 0;
+    left: 0;
+    right: 0;
+    border-radius: 0;*/
 }
 
 span.marker-highlight {
@@ -712,5 +759,145 @@ a.button:hover .button-icon {
 
     100% {
         transform: rotate(360deg);
+    }
+}
+
+[data-language] {
+    display: none;
+}
+
+html[lang="en"] [data-language="en"] {
+    display: block;
+}
+
+html[lang="de"] [data-language="de"] {
+    display: block;
+}
+
+#languageSwitch {
+    cursor: pointer;
+    padding: 6px 10px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-secondary);
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease-in-out;
+}
+
+#languageSwitch:hover {
+    background: var(--bg-hover);
+    border-color: var(--accent-color);
+    transform: scale(1.1) rotate(2deg);
+}
+
+#languageSwitch img.flag {
+    width: 36px;
+    height: auto;
+    display: block;
+    border-radius: 2px;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+.site-info {
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🦄</text></svg>") 16 0, auto;
+    margin: clamp(2rem, 5vw, 4rem) 0;
+    margin-top: -2rem;
+    padding: 2rem;
+    border-left: 4px solid var(--accent-color);
+    background: linear-gradient(90deg, var(--skeleton-base) 0%, transparent 100%);
+    border-radius: 0 12px 12px 0;
+}
+
+
+.site-info:hover {
+    /*border-left: 4px dashed var(--accent-color);*/
+    /*border-left: 5px dashed var(--accent-color);
+    border-radius: 8px 16px 16px 8px;*/
+}
+
+.site-info h2 {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 700;
+    text-transform: lowercase;
+    opacity: 0.8;
+}
+
+.site-info p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 600px;
+}
+
+.text-animated {
+    position: relative;
+    font-weight: 600;
+    color: var(--accent-color);
+    display: inline-block;
+}
+
+.text-animated:hover {
+    font-weight: 666;
+    color: var(--accent-color);
+    scale: 1.075;
+}
+
+.text-animated::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--marker-color);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+.site-info:hover .text-animated::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.cursor-animated {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: inline-block;
+}
+
+.cursor-animated:hover {
+    animation: cursor-change-animated 1.5s infinite;
+    color: var(--accent-color);
+}
+
+@keyframes cursor-change-animated {
+    0% {
+        cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' style='font-size:24px;'><text y='50%'>🎨</text></svg>") 16 0, auto;
+    }
+    25% {
+        cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' style='font-size:24px;'><text y='50%'>🚀</text></svg>") 16 0, auto;
+    }
+    50% {
+        cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' style='font-size:24px;'><text y='50%'>✨</text></svg>") 16 0, auto;
+    }
+    75% {
+        cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' style='font-size:24px;'><text y='50%'>💻</text></svg>") 16 0, auto;
+    }
+    100% {
+        cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' style='font-size:24px;'><text y='50%'>🎨</text></svg>") 16 0, auto;
+    }
+}
+
+.site-info:hover .cursor-animated {
+    transform: translateY(-2px) rotate(-1deg);
+    color: #f560fa;
+}
+
+@media (max-width: 768px) {
+    .site-info {
+        margin: 1rem 0;
+        padding: 1.5rem;
     }
 }
